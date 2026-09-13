@@ -22,9 +22,11 @@ class DrawSquare(Node):
     def __init__(self):
         super().__init__('draw_square_with_estop')
         self.e_stop = Event()
+        self.stop_distance = 0.5
         # create a thread to handle long-running component
         self.vel_pub = self.create_publisher(Twist, 'cmd_vel', 10)
         self.create_subscription(Bool, 'estop', self.handle_estop, 10)
+        self.create_subscription(LaserScan, 'scan', self.process_scan, 10)
         self.run_loop_thread = Thread(target=self.run_loop)
         self.run_loop_thread.start()
 
@@ -35,8 +37,21 @@ class DrawSquare(Node):
         Args:
             msg (std_msgs.msg.Bool): the message that takes value true if we
             estop and false otherwise.
-        """ 
+        """
         if msg.data:
+            self.e_stop.set()
+            self.drive(linear=0.0, angular=0.0)
+
+    def process_scan(self, msg):
+        """Handles laser scan data, triggering the same e_stop as the estop
+        topic if something is within stop_distance in front of the robot.
+
+        Args:
+            msg (sensor_msgs.msg.LaserScan): the current laser scan.
+        """
+        front_range = msg.ranges[0]
+        if 0.0 < front_range < self.stop_distance and not self.e_stop.is_set():
+            print(f"Obstacle detected {front_range:.2f}m ahead, stopping!")
             self.e_stop.set()
             self.drive(linear=0.0, angular=0.0)
 

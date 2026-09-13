@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating in_class_day03.egg-info
+writing in_class_day03.egg-info/PKG-INFO
+writing dependency_links to in_class_day03.egg-info/dependency_links.txt
+writing entry points to in_class_day03.egg-info/entry_points.txt
+writing requirements to in_class_day03.egg-info/requires.txt
+writing top-level names to in_class_day03.egg-info/top_level.txt
+writing manifest file 'in_class_day03.egg-info/SOURCES.txt'
+reading manifest file 'in_class_day03.egg-info/SOURCES.txt'
+writing manifest file 'in_class_day03.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages/in-class-day03.egg-link (link to .)
+Installing emergency_stop script to /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/in_class_day03
+
+Installed /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03
+running symlink_data
+creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index
+creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index/resource_index
+creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index/resource_index/packages
+symbolically linking /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/resource/in_class_day03 -> /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index/resource_index/packages
+symbolically linking /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/package.xml -> /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/in_class_day03

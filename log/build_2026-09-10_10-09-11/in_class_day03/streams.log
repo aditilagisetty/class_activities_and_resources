@@ -1,0 +1,17 @@
+[0.965s] Invoking command in '/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/build --no-deps symlink_data
+[1.325s] running develop
+[1.504s] running egg_info
+[1.522s] writing in_class_day03.egg-info/PKG-INFO
+[1.522s] writing dependency_links to in_class_day03.egg-info/dependency_links.txt
+[1.522s] writing entry points to in_class_day03.egg-info/entry_points.txt
+[1.522s] writing requirements to in_class_day03.egg-info/requires.txt
+[1.523s] writing top-level names to in_class_day03.egg-info/top_level.txt
+[1.544s] reading manifest file 'in_class_day03.egg-info/SOURCES.txt'
+[1.544s] writing manifest file 'in_class_day03.egg-info/SOURCES.txt'
+[1.553s] running build_ext
+[1.553s] Creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages/in-class-day03.egg-link (link to .)
+[1.553s] Installing emergency_stop script to /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/in_class_day03
+[1.553s] 
+[1.554s] Installed /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03
+[1.554s] running symlink_data
+[1.575s] Invoked command in '/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/build --no-deps symlink_data

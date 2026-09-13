@@ -1,0 +1,24 @@
+[0.675s] Invoking command in '/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/build --no-deps symlink_data
+[0.861s] running develop
+[0.953s] running egg_info
+[0.953s] creating in_class_day03.egg-info
+[0.963s] writing in_class_day03.egg-info/PKG-INFO
+[0.963s] writing dependency_links to in_class_day03.egg-info/dependency_links.txt
+[0.963s] writing entry points to in_class_day03.egg-info/entry_points.txt
+[0.963s] writing requirements to in_class_day03.egg-info/requires.txt
+[0.963s] writing top-level names to in_class_day03.egg-info/top_level.txt
+[0.964s] writing manifest file 'in_class_day03.egg-info/SOURCES.txt'
+[0.981s] reading manifest file 'in_class_day03.egg-info/SOURCES.txt'
+[0.982s] writing manifest file 'in_class_day03.egg-info/SOURCES.txt'
+[0.992s] running build_ext
+[0.992s] Creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages/in-class-day03.egg-link (link to .)
+[0.992s] Installing emergency_stop script to /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/in_class_day03
+[0.992s] 
+[0.992s] Installed /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03
+[0.992s] running symlink_data
+[0.992s] creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index
+[0.992s] creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index/resource_index
+[0.993s] creating /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index/resource_index/packages
+[0.993s] symbolically linking /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/resource/in_class_day03 -> /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/ament_index/resource_index/packages
+[0.993s] symbolically linking /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/package.xml -> /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/share/in_class_day03
+[1.015s] Invoked command in '/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/aditilagisetty/ros2_ws/src/class_activities_and_resources/install/in_class_day03/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/aditilagisetty/ros2_ws/src/class_activities_and_resources/build/in_class_day03/build --no-deps symlink_data

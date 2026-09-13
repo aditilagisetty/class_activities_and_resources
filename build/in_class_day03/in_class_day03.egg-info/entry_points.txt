@@ -1,0 +1,2 @@
+[console_scripts]
+emergency_stop = in_class_day03.emergency_stop:main
