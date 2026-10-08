@@ -18,7 +18,10 @@ class SimpleParticleFilter(Node):
     def __init__(self):
         super().__init__('simple_particle_filter')
 
-
+        # declares ROS parameters and read their values
+        # walls --> wall position
+        # nparticles --> number of particles
+        # realrobot --> if this a real Neato or simulator
         (walls, n_particles, real_robot) = self.declare_parameters(
             namespace='',
             parameters=[
@@ -32,7 +35,9 @@ class SimpleParticleFilter(Node):
         self.n_particles = n_particles.value
         real_robot = real_robot.value
 
+        # builds World model
         self.world_model = WorldModel(self.walls)
+        # builds sensor model
         sensor_model = SensorModel(model_noise_rate=0.05,
                                    odom_noise_rate=0.1,
                                    world_model=self.world_model,
@@ -40,11 +45,13 @@ class SimpleParticleFilter(Node):
 
         self.fig = plt.figure()
         self.fig.show()
-        self.pf = ParticleFilter()
 
+        # creates empty particle filter
+        self.pf = ParticleFilter()
+        # create n_particle particle
         for i in range(self.n_particles):
-            self.pf.add_particle(Particle(position=randn()+1.5,
-                                          weight=1/float(self.n_particles),
+            self.pf.add_particle(Particle(position=randn()+1.5, # why 1.5??
+                                          weight=1/float(self.n_particles), # all start with 1/n equal weights
                                           sensor_model=sensor_model))
         self.last_scan = None
         self.last_odom = None
@@ -52,24 +59,30 @@ class SimpleParticleFilter(Node):
         self.create_subscription(LaserSimple, 'simple_scan', self.process_scan, 10)
         self.create_subscription(OdometrySimple, 'simple_odom', self.process_odom, 10)
         self.create_subscription(Float64, 'true_position', self.process_true_position, 10)
+        # timer that calls run loop every second
         self.create_timer(1.0, self.run_loop)
 
+    # prints the message and stores it in last scan
     def process_scan(self, msg):
         """ Process the simple scans coming from the simulator
             or the Neato bridge """
         print(msg)
         self.last_scan = msg
 
+    # stores ground truth
     def process_true_position(self, msg):
         """ This topic is only available when working with the
             simulator """
         self.true_position = msg.data
 
+    # predict step
+    # only acts if a previous odometry message exists and the position has changed
     def process_odom(self, msg):
         """ Process odometry messages from the simulator or the
             neato bridge """
         if (self.last_odom != None  and
             msg.south_to_north_position != self.last_odom.south_to_north_position):
+            # new pos minus last pos
             delta = msg.south_to_north_position - self.last_odom.south_to_north_position
             self.pf.predict(delta)
         self.last_odom = msg
@@ -107,11 +120,13 @@ class SimpleParticleFilter(Node):
         plt.draw()
         plt.pause(.01)
 
+    # if a scan is waiting, use it to reweight the particles then clear it so its not reused
     def run_loop(self):
         """ main run loop """
         if self.last_scan != None:
             self.pf.integrate_observation(self.last_scan)
             self.last_scan = None
+            # normaliza and draw weights so they sum to 1
         self.pf.normalize()
         self.draw_world_state()
         self.pf.resample()
