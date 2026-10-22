@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>in_class_day04_solutions</name>
+  <name>in_class_day05_solutions</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="paullundyruvolo@gmail.com">pruvolo</maintainer>
+  <maintainer email="vpreston@olin.edu">vpreston</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>

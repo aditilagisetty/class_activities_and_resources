@@ -48,7 +48,8 @@ class WallApproachNode(Node):
             msg.linear.x = 0.1
         else:
             # use proportional control to set the velocity
-            msg.linear.x = self.Kp*(self.distance_to_obstacle - self.target_distance)
+            # remember that there is a maximum linear velocity for the neato
+            msg.linear.x = min([0.3, self.Kp*(self.distance_to_obstacle - self.target_distance)])
         self.vel_pub.publish(msg)
 
     def process_scan(self, msg):

@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'in_class_day04_solutions'
+package_name = 'in_class_day05_solutions'
 
 setup(
     name=package_name,
@@ -13,16 +13,16 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='pruvolo',
-    maintainer_email='paullundyruvolo@gmail.com',
+    maintainer='vpreston',
+    maintainer_email='vpreston@olin.edu',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'wall_approach_starter = in_class_day04_solutions.wall_approach_starter:main',
-            'wall_approach = in_class_day04_solutions.wall_approach:main',
-            'wall_approach_fancy = in_class_day04_solutions.wall_approach_fancy:main'
+            'wall_approach_starter = in_class_day05_solutions.wall_approach_starter:main',
+            'wall_approach = in_class_day05_solutions.wall_approach:main',
+            'wall_approach_fancy = in_class_day05_solutions.wall_approach_fancy:main'
         ],
     },
 )

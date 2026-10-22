@@ -1,12 +1,19 @@
-import rclpy
-from threading import Thread
-from rclpy.node import Node
+"""A script for driving a Neato towards an object (ball) of a particular color. 
+Color is specified by a user setting color filtering thresholds."""
+import os
 import time
-from sensor_msgs.msg import Image
-from cv_bridge import CvBridge
-import cv2
 import numpy as np
+import cv2
+import rclpy
+
+from threading import Thread
+from cv_bridge import CvBridge
+from rclpy.node import Node
+from sensor_msgs.msg import Image
 from geometry_msgs.msg import Twist
+
+# Points the computer to local fonts for the QT GUI that OpenCV will produce.
+os.environ['QT_QPA_FONTDIR'] = '/usr/share/fonts/truetype/dejavu'
 
 class BallTracker(Node):
     """ The BallTracker is a Python object that encompasses a ROS node 
@@ -87,7 +94,8 @@ class BallTracker(Node):
         """ Process mouse events so that you can see the color values
             associated with a particular pixel in the camera images """
         # scroll event for rendering pixel data
-        self.image_info_window = 255*np.ones((500,500,3))
+        img = 255*np.ones((500,500,3))
+        self.image_info_window = img.astype('uint8')
         cv2.putText(self.image_info_window,
                     'Color (b=%d,g=%d,r=%d)' % (self.cv_image[y,x,0], self.cv_image[y,x,1], self.cv_image[y,x,2]),
                     (5,50),
@@ -100,6 +108,7 @@ class BallTracker(Node):
             self.should_move = not(self.should_move)
 
     def run_loop(self):
+        """ Main loop for processing images and controlling the Neato through the CV interface."""
         # NOTE: only do cv2.imshow and cv2.waitKey in this function 
         if not self.cv_image is None:
             self.binary_image = cv2.inRange(self.cv_image, (self.blue_lower_bound,self.green_lower_bound,self.red_lower_bound), (self.blue_upper_bound,self.green_upper_bound,self.red_upper_bound))
@@ -121,14 +130,10 @@ class BallTracker(Node):
                 cv2.imshow('image_info', self.image_info_window)
             cv2.waitKey(5)
 
-if __name__ == '__main__':
-    node = BallTracker("/camera/image_raw")
-    node.run()
-
 
 def main(args=None):
     rclpy.init()
-    n = BallTracker("camera/image_raw")
+    n = BallTracker("camera/image")
     rclpy.spin(n)
     rclpy.shutdown()
 
